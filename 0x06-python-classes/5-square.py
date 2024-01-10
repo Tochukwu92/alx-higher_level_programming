@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-'''Define a class Square. '''
+'''Define a square. '''
 
 
 class Square:
@@ -31,3 +31,4 @@ class Square:
     def area(self):
         '''Returns the current area of the square '''
         return (self.__size * self.__size)
+
