@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+
+import unittest
+from test.0-add_integer import add_integer
+
+
+class TestAddInteger(unittest.TestCase):
+    '''Test the program.'''
+
+
+    def test_addinterger(self):
+        '''Testing the integers.'''
+
+        assertEqual(add_integer(1, 2), 3)
+        assertEqual(add_integer(100, -2), 98)
+        assertEqual(add_integer(-3, -2), -5)
+        assertEqual(add_integer(2), 100)
+
+        with assertRaises(TypeError):
+            add_integer("not integer", 3)
+            add_integer("not integer", "not integer")
+            add_integer("not number")
