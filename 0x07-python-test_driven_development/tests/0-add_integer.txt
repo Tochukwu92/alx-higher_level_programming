@@ -1,22 +1,40 @@
 #!/usr/bin/python3
 
-import unittest
-from test.0-add_integer import add_integer
+def add_integer(a, b=98):
+    '''Add two integers
 
+    Args:
+        a (int): first parameter
+        b (int): second parameter
+    Return: a + b
+    
+    >>> add_integer(2)
+    100
+    >>> add_integer(100, -2)
+    98
+    >>> add_integer(100.3, -2)
+    98
+    >>> add_integer(4, "school")
+    Traceback (most recent call last):
+        File "<stdin>", line 1, in <module>
+        File "/alx-higher_level_programming/0x07-python-test_driven_development/
+        0-add_integer.py", line 14, in add_integer
+            raise TypeError('b must be an integer')
+    TypeError: b must be an integer
+    >>> add_integer(None)
+    Traceback (most recent call last):
+        File "<stdin>", line 1, in <module>
+        File "/alx-higher_level_programming/0x07-python-test_driven_development/
+        0-add_integer.py", line 12, in add_integer
+            raise TypeError('a must be an integer')
+    TypeError: a must be an integer
+    '''
+    if not isinstance(a, int) and not isinstance(a, float):
+        raise TypeError('a must be an integer')
+    if not isinstance(b, int) and not isinstance(b, float):
+        raise TypeError('b must be an integer')
+    return (int(a) + int(b))
 
-class TestAddInteger(unittest.TestCase):
-    '''Test the program.'''
-
-
-    def test_addinterger(self):
-        '''Testing the integers.'''
-
-        assertEqual(add_integer(1, 2), 3)
-        assertEqual(add_integer(100, -2), 98)
-        assertEqual(add_integer(-3, -2), -5)
-        assertEqual(add_integer(2), 100)
-
-        with assertRaises(TypeError):
-            add_integer("not integer", 3)
-            add_integer("not integer", "not integer")
-            add_integer("not number")
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
