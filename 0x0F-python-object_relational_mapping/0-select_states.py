@@ -11,7 +11,7 @@ if __name__ == "__main__":
             port=3306,
             user=sys.argv[1],
             password=sys.argv[2],
-           db=sys.argv[3]
+            db=sys.argv[3]
             )
     cur = connect.cursor()
     cur.execute("SELECT * FROM states ORDER BY id")
@@ -21,4 +21,3 @@ if __name__ == "__main__":
 
     cur.close()
     connect.close()
-
