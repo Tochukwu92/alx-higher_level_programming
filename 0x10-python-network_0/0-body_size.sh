@@ -2,10 +2,7 @@
 # send a get request and
 # get body size in bytes
 
-temp_file=$(mktemp)
-url=$1
-
-curl -s -o "$temp_file" "$url"
-respond=$(wc -c < "$temp_file")
+curl -s -o file.txt $1
+respond=$(wc -c < "file.txt")
 echo $respond
-rm "$temp_file"
+
